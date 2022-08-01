@@ -30,6 +30,9 @@
 #include "hardware/spi.h"
 #include "hardware/adc.h"
 #include "hardware/uart.h"
+#include "hardware/resets.h"
+#include "hardware/clocks.h"
+#include "pico/timeout_helper.h"
 
 #ifdef __cplusplus
 extern "C"

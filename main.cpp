@@ -1,5 +1,5 @@
 /*
- * Blink for Raspberry Pi Pico
+ * Kitrionics Robotics Board Basics
  *
  * @version     1.0.0
  * @author     Justin Berkshire
@@ -7,11 +7,47 @@
  * @licence     MIT
  *
  */
+
 #include "main.h"
 using namespace std;
 
-int main()
-{
+class KitronikBoard {
+
+    private: uint I2CAddress;
+    private: uint sda;
+    private: uint scl;
+    private: uint freq = 100000;
+
+    public: KitronikBoard(uint address = 108, uint sdaPin = 8, uint sclPin = 9) {
+        I2CAddress = address;
+        sda = sdaPin;
+        scl = sclPin;
+
+        gpio_init(sda);
+        gpio_init(scl);
+
+        i2c_init(i2c_default, freq);
+        gpio_set_function(sda, GPIO_FUNC_I2C);
+        gpio_set_function(scl, GPIO_FUNC_I2C);
+        gpio_pull_up(sda);
+        gpio_pull_up(scl);
+
+
+
+    };
+
+    private: send_command(uint8_t cmd) {
+        uint_t buf[2] = (0x80, cmd);
+        // i2c_write_blocking(i2c_default, (I2CAddress & ))
+    }
+
+    private: reset_buffer() {
+
+    }
+
+};
+
+int main() {
     const uint LED = PICO_DEFAULT_LED_PIN;
 
     gpio_init(LED);
@@ -24,12 +60,11 @@ int main()
 
     int b = 8;
 
-    int c = a + b; 
+    int c = a + b;
 
     cout << c << '\n';
 
-    while (true)
-    {
+    while (true) {
         cout << "Deadly Virus";
         gpio_put(LED, 1);
         sleep_ms(a * 100);
