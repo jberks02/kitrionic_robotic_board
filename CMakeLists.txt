@@ -4,7 +4,7 @@ include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 include(pico_sdk_import.cmake)
 
-project(ServoMover VERSION 1.0.0)
+project(I2cConnect VERSION 1.0.0)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 set(PICO_ENABLE_CXX_EXCEPTIONS 1)
@@ -17,7 +17,7 @@ set(PICO_CXX_ENABLE_EXCEPTIONS 1)
 
 pico_sdk_init()
 
-pico_enable_stdio_usb(${PROJECT_NAME} 1)
+pico_enable_stdio_usb(${PROJECT_NAME} 0)
 pico_enable_stdio_uart(${PROJECT_NAME} 1)
 pico_add_extra_outputs(${PROJECT_NAME})
 
