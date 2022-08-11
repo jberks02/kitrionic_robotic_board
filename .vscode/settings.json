@@ -3,5 +3,6 @@
         "PICO_SDK_PATH": "/Users/justinberkshire/EmbeddedProjects/pico-sdk"
     },
     "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "cmake.configureOnOpen": false
 }
